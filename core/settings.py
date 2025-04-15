@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'core',
     'myuser',
     'myprofile',
+    'userautentication',
 ]
 
 MIDDLEWARE = [
