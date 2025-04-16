@@ -74,116 +74,40 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="category-type">
+                                            {% if categories %}
                                             <table class="table table-bordered table-responsive">
                                                 <thead>
                                                     <tr>
-                                                      <th scope="col">#</th>
-                                                      <th scope="col">First</th>
-                                                      <th scope="col">Last</th>
+                                                      <th scope="col">Category Name</th>
+                                                      <th scope="col">Category Type</th>
+                                                        <th scope="col">Created By</th>
+                                                        <th scope="col">Created at</th>
                                                       <th scope="col">Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                {% for categories in item %}
                                                     <tr>
-                                                      <th scope="row">1</th>
-                                                      <td>
-                                                        <span class="category-icon"><i class="bg-purple-500 fi fi-rr-usd-circle"></i> Salary</span>
+                                                      <td class="left-category">
+                                                        <span class="category-icon"><i class="bg-purple-500 fi fi-rr-usd-circle"></i>{{ item.category_name}}</span>
                                                       </td>
-                                                      <td>Otto</td>
-                                                      <td>
+                                                      <td>{{ item.category_type }}</td>
+                                                        <td>{{ item.user }}</td>
+                                                        <td>{{ item.create_at }}</td>
+                                                      <td class="right-category">
                                                           <span><i class="fi fi-rs-pencil"></i></span>
                                                           <span><i class="fi fi-rr-eye"></i></span>
                                                           <span><i class="fi fi-rr-trash"></i></span>
                                                       </td>
                                                     </tr>
-                                                    <tr>
-                                                      <th scope="row">2</th>
-                                                      <td>Jacob</td>
-                                                      <td>Thornton</td>
-                                                      <td>@fat</td>
-                                                    </tr>
+                                                {% endfor %}
                                                 </tbody>
                                             </table>
-                                            <ul>
-                                                <li>
-                                                    <div class="left-category">
-                                                        <span class="drag-icon"><i class="fi fi-ss-grip-lines"></i></span>
-                                                        <span class="category-icon"><i class="bg-purple-500 fi fi-rr-usd-circle"></i> Salary</span>
-                                                    </div>
-                                                    <div class="right-category">
-                                                        <span><i class="fi fi-rs-pencil"></i></span>
-                                                        <span><i class="fi fi-rr-eye"></i></span>
-                                                        <span><i class="fi fi-rr-trash"></i></span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left-category">
-                                                        <span class="drag-icon"><i class="fi fi-ss-grip-lines"></i></span>
-                                                        <span class="category-icon"><i class="bg-red-500 fi fi-rr-store-alt"></i> Business</span>
-                                                    </div>
-                                                    <div class="right-category">
-                                                        <span><i class="fi fi-rs-pencil"></i></span>
-                                                        <span><i class="fi fi-rr-eye"></i></span>
-                                                        <span><i class="fi fi-rr-trash"></i></span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left-category">
-                                                        <span class="drag-icon"><i class="fi fi-ss-grip-lines"></i></span>
-                                                        <span class="category-icon"><i class="bg-orange-500 fi fi-rr-life-ring"></i> Client</span>
-                                                    </div>
-                                                    <div class="right-category">
-                                                        <span><i class="fi fi-rs-pencil"></i></span>
-                                                        <span><i class="fi fi-rr-eye"></i></span>
-                                                        <span><i class="fi fi-rr-trash"></i></span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left-category">
-                                                        <span class="drag-icon"><i class="fi fi-ss-grip-lines"></i></span>
-                                                        <span class="category-icon"><i class="bg-amber-500 fi fi-rr-gift"></i> Gifts</span>
-                                                    </div>
-                                                    <div class="right-category">
-                                                        <span><i class="fi fi-rs-pencil"></i></span>
-                                                        <span><i class="fi fi-rr-eye"></i></span>
-                                                        <span><i class="fi fi-rr-trash"></i></span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left-category">
-                                                        <span class="drag-icon"><i class="fi fi-ss-grip-lines"></i></span>
-                                                        <span class="category-icon"><i class="bg-yellow-500 fi fi-bs-user-shield"></i> Insurance
-                                                        </span>
-                                                    </div>
-                                                    <div class="right-category">
-                                                        <span><i class="fi fi-rs-pencil"></i></span>
-                                                        <span><i class="fi fi-rr-eye"></i></span>
-                                                        <span><i class="fi fi-rr-trash"></i></span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left-category">
-                                                        <span class="drag-icon"><i class="fi fi-ss-grip-lines"></i></span>
-                                                        <span class="category-icon"><i class="bg-lime-500 fi fi-rr-sack-dollar"></i> Loan</span>
-                                                    </div>
-                                                    <div class="right-category">
-                                                        <span><i class="fi fi-rs-pencil"></i></span>
-                                                        <span><i class="fi fi-rr-eye"></i></span>
-                                                        <span><i class="fi fi-rr-trash"></i></span>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="left-category">
-                                                        <span class="drag-icon"><i class="fi fi-ss-grip-lines"></i></span>
-                                                        <span class="category-icon"><i class="bg-green-500 fi fi-rr-add-document"></i> Other</span>
-                                                    </div>
-                                                    <div class="right-category">
-                                                        <span><i class="fi fi-rs-pencil"></i></span>
-                                                        <span><i class="fi fi-rr-eye"></i></span>
-                                                        <span><i class="fi fi-rr-trash"></i></span>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                            {% else %}
+                                            <div class="alert alert-warning" role="alert">
+                                              No data found!
+                                            </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
