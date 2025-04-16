@@ -1,18 +1,28 @@
+<!--{% if messages %}-->
+<!--  {% for message in messages %}-->
+<!--    <div {% if message.tags %} class="alert {{ message.tags }}" {% endif %} role="alert">-->
+<!--        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}-->
+<!--            <strong>Error:</strong>-->
+<!--        {% endif %}-->
+<!--        {{ message }}-->
+<!--&lt;!&ndash;        <button type="button" class="close" data-dismiss="alert" aria-label="Close">&ndash;&gt;-->
+<!--&lt;!&ndash;            <span aria-hidden="true">&times;</span>&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+<!--    </div>-->
+<!--  {% endfor %}-->
+<!--{% endif %}-->
+
 {% if messages %}
-  {% for message in messages %}
-    <div class="alert alert-warning alert-dismissible fade show {% if message.tags %}{{ message.tags }}{% endif %}" role="alert">
-        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-            <strong>Error:</strong>
-        {% endif %}
-        {{ message }}
-<!--        <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-<!--            <span aria-hidden="true">&times;</span>-->
-<!--        </button>-->
-    </div>
-  {% endfor %}
+{% for message in messages %}
+<div {% if message.tags %} class="alert {{ message.tags }} alert-dismissible fade show" {% endif %} role="alert">
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <strong>Error:</strong>
+    {% endif %}
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
 {% endif %}
-
-
 <!--{% if messages %}-->
 <!--  {% for message in messages %}-->
 <!--    <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
