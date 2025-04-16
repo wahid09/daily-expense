@@ -4,5 +4,6 @@ from . import views
 
 app_name = 'category'
 urlpatterns = [
-    path('category-list', views.get_category, name='category'),
+    path('', views.get_category, name='category-list'),
+    path('category-create', views.create_category, name='create-category')
 ]
