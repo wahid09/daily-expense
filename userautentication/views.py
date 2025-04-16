@@ -67,19 +67,26 @@ def get_register(request):
 
 def get_login(request):
     if request.user.is_authenticated:
-        return redirect('core:dashboard')  
+        return redirect('userauthencation:dashboard')
     else:
         if request.method == 'POST':
             email = request.POST.get('email')
             password = request.POST.get('password')
-            user = auth.authenticate(email=email, password=password)
+            user = auth.authenticate(username=email, password=password)
             print(user)
             if user is not None:
                 auth.login(request, user)
                 # messages.success(request, 'You are now logged in.')
-                return redirect('core:dashboard')
+                return redirect('userauthencation:dashboard')
             else:
                 messages.error(request, 'Invalid Login credentials')
                 return redirect('userauthencation:login')
-
     return render(request, 'auth/login.html')
+
+@login_required
+def get_logout(request):
+    logout(request)
+    messages.info(request, 'You are now loggout.')
+    return HttpResponseRedirect(reverse('userauthencation:login'))
+def get_dashboard(request):
+    return render(request, 'core/index.html')

@@ -11,7 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/toastr/toastr.min.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'vendor/toastr/toastr.min.css' %}">-->
 </head>
 
 <body class="dashboard">
@@ -123,7 +123,7 @@
                                             <span><i class="fi fi-rr-settings"></i></span>
                                             Settings
                                         </a>
-                                        <a class="dropdown-item logout" href="signin.html">
+                                        <a class="dropdown-item logout" href="{% url 'userauthencation:logout' %}">
                                             <span><i class="fi fi-bs-sign-out-alt"></i></span>
                                             Logout
                                         </a>
@@ -136,12 +136,12 @@
             </div>
         </div>
         <div class="sidebar">
-            <div class="brand-logo"><a class="full-logo" href="index.html"><img src="{% static 'images/logoi.png' %}" alt="" width="30"></a>
+            <div class="brand-logo"><a class="full-logo" href="{% url 'userauthencation:dashboard' %}"><img src="{% static 'images/logoi.png' %}" alt="" width="30"></a>
             </div>
             <div class="menu">
                 <ul>
                     <li>
-                        <a href="index.html">
+                        <a href="{% url 'userauthencation:dashboard' %}">
                             <span>
                                 <i class="fi fi-rr-dashboard"></i>
                             </span>
@@ -250,8 +250,8 @@
     </div>
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'vendor/toastr/toastr.min.js' %}"></script>
-    <script src="{% static 'vendor/toastr/toastr-init.js' %}"></script>
+<!--    <script src="{% static 'vendor/toastr/toastr.min.js' %}"></script>-->
+<!--    <script src="{% static 'vendor/toastr/toastr-init.js' %}"></script>-->
     <script src="{% static 'vendor/circle-progress/circle-progress.min.js' %}"></script>
     <script src="{% static 'vendor/circle-progress/circle-progress-init.js' %}"></script>
     <script src="{% static 'vendor/chartjs/chartjs.js' %}"></script>

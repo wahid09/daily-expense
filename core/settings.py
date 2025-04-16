@@ -59,6 +59,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'core.wsgi.application'
+AUTH_USER_MODEL = 'userautentication.Account'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
@@ -98,6 +99,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
