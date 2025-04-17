@@ -1,0 +1,101 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center align-items-center g-0">
+        <div class="col-12">
+            <div class="page-title">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-xl-4">
+                        <div class="page-title-content">
+                            <h3>Expenses</h3>
+                            <p class="mb-2">Welcome Ekash Finance Management</p>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="breadcrumbs"><a href="{% url 'userauthencation:dashboard' %}">Home </a>
+                            <span><i class="fi fi-rr-angle-small-right"></i></span>
+                            <a href="{% url 'expense:expense-list' %}">expense</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xxl-12 col-xl-12">
+
+            <div class="row justify-content-center align-items-center g-0">
+                <div class="col-xxl-12 col-xl-10 col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Expenses</h4>
+                            <a href="{% url 'expense:expense-create' %}" class="btn btn-primary">
+                                <span><i class="fi fi-rs-add"></i></span>&nbsp; Create
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="category-type">
+                                {% if expense %}
+                                <table class="table table-bordered table-responsive">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Category Name</th>
+                                        <th scope="col">Expense Amount</th>
+                                        <th scope="col">Expense Date</th>
+                                        <th scope="col">payment_method</th>
+                                        <th scope="col">Created at</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for item in expense %}
+                                    <tr>
+                                        <td class="left-category">
+                                            <span class="category-icon"><i
+                                                    class=""></i>{{ item.category}}</span>
+                                        </td>
+                                        <td>{{ item.amount }}</td>
+                                        <td>{{ item.expense_date }}</td>
+                                        <td>{{ item.payment_method }}</td>
+                                        <td>{{ item.created_at|date:"M d, Y" }}</td>
+                                        <td>
+                                            {% if item.is_active %}
+                                            <span class="badge bg-success">Active</span>
+                                            {% else %}
+                                            <span class="badge bg-danger">Inactive</span>
+                                            {% endif %}
+                                        </td>
+                                        <td class="right-category">
+                                            <a href="{% url 'expense:expense-edit' item.pk %}"
+                                               class="text-warning me-2" title="Edit">
+                                                <span><i class="fi fi-rs-pencil"></i></span>
+                                            </a>
+                                            <a href="{% url 'expense:expense-detail' item.pk %}"
+                                               class="text-info me-2" title="View">
+                                                <span><i class="fi fi-rr-eye"></i></span>
+                                            </a>
+                                            <a href="{% url 'expense:expense-delete' item.pk %}" class="text-danger"
+                                               title="Delete"
+                                               onclick="return confirm('Are you sure you want to delete this category?')">
+                                                <span><i class="fi fi-rr-trash"></i></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <div class="alert alert-warning" role="alert">
+                                    No data found!
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

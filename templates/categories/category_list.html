@@ -1,119 +1,99 @@
 {% extends 'core/base.html' %}
 {% block content %}
 <div class="container">
-                <div class="row justify-content-center align-items-center g-0">
-                    <div class="col-12">
-                        <div class="page-title">
-                            <div class="row align-items-center justify-content-between">
-                                <div class="col-xl-4">
-                                    <div class="page-title-content">
-                                        <h3>Categories</h3>
-                                        <p class="mb-2">Welcome Ekash Finance Management</p>
-                                    </div>
-                                </div>
-                                <div class="col-auto">
-                                    <div class="breadcrumbs"><a href="#">Home </a>
-                                        <span><i class="fi fi-rr-angle-small-right"></i></span>
-                                        <a href="#">Categories</a>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="row justify-content-center align-items-center g-0">
+        <div class="col-12">
+            <div class="page-title">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-xl-4">
+                        <div class="page-title-content">
+                            <h3>Categories</h3>
+                            <p class="mb-2">Welcome Ekash Finance Management</p>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="breadcrumbs"><a href="#">Home </a>
+                            <span><i class="fi fi-rr-angle-small-right"></i></span>
+                            <a href="#">Categories</a>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xxl-12 col-xl-12">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xxl-12 col-xl-12">
 
-                        <div class="row justify-content-center align-items-center g-0">
-<!--                            <div class="col-xxl-4 col-xl-4 col-lg-6">-->
-<!--                                <div class="card">-->
-<!--                                    <div class="card-header">-->
-<!--                                        <h4 class="card-title">Create a new categories</h4>-->
-<!--                                    </div>-->
-<!--                                    <div class="card-body">-->
-<!--                                        <div class="create-new-category">-->
-<!--                                            <form class="row">-->
-<!--                                                <div class="mb-3 col-12">-->
-<!--                                                    <label class="form-label">Name </label>-->
-<!--                                                    <input type="text" class="form-control" placeholder="category name">-->
-<!--                                                </div>-->
-<!--                                                <div class="mb-3 col-12">-->
-<!--                                                    <label class="form-label">Type </label>-->
-<!--                                                    <select class="form-select">-->
-<!--                                                        <option selected>Choose...</option>-->
-<!--                                                        <option>Income</option>-->
-<!--                                                        <option>Expenses</option>-->
-<!--                                                    </select>-->
-<!--                                                </div>-->
-<!--                                                <div class="mb-3 col-6">-->
-<!--                                                    <label class="form-label">Icon </label>-->
-<!--                                                    <select class="form-select">-->
-<!--                                                        <option selected>Choose...</option>-->
-<!--                                                        <option>...</option>-->
-<!--                                                    </select>-->
-<!--                                                </div>-->
-<!--                                                <div class="mb-3 col-6">-->
-<!--                                                    <label class="form-label">Color </label>-->
-<!--                                                    <select class="form-select">-->
-<!--                                                        <option selected>Choose...</option>-->
-<!--                                                        <option>...</option>-->
-<!--                                                    </select>-->
-<!--                                                </div>-->
-<!--                                                <div class="col-12">-->
-<!--                                                    <button class="btn btn-success w-100">Create new category</button>-->
-<!--                                                </div>-->
-<!--                                            </form>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-                            <div class="col-xxl-12 col-xl-10 col-lg-8">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Income Categories</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="category-type">
-                                            {% if categories %}
-                                            <table class="table table-bordered table-responsive">
-                                                <thead>
-                                                    <tr>
-                                                      <th scope="col">Category Name</th>
-                                                      <th scope="col">Category Type</th>
-                                                        <th scope="col">Created By</th>
-                                                        <th scope="col">Created at</th>
-                                                      <th scope="col">Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                {% for categories in item %}
-                                                    <tr>
-                                                      <td class="left-category">
-                                                        <span class="category-icon"><i class="bg-purple-500 fi fi-rr-usd-circle"></i>{{ item.category_name}}</span>
-                                                      </td>
-                                                      <td>{{ item.category_type }}</td>
-                                                        <td>{{ item.user }}</td>
-                                                        <td>{{ item.create_at }}</td>
-                                                      <td class="right-category">
-                                                          <span><i class="fi fi-rs-pencil"></i></span>
-                                                          <span><i class="fi fi-rr-eye"></i></span>
-                                                          <span><i class="fi fi-rr-trash"></i></span>
-                                                      </td>
-                                                    </tr>
-                                                {% endfor %}
-                                                </tbody>
-                                            </table>
+            <div class="row justify-content-center align-items-center g-0">
+                <div class="col-xxl-12 col-xl-10 col-lg-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Categories</h4>
+                            <a href="{% url 'category:category-create' %}" class="btn btn-primary">
+                                <span><i class="fi fi-rs-add"></i></span>&nbsp; Create
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="category-type">
+                                {% if categories %}
+                                <table class="table table-bordered table-responsive">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Category Name</th>
+                                        <th scope="col">Category Type</th>
+                                        <th scope="col">Created By</th>
+                                        <th scope="col">Created at</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for item in categories %}
+                                    <tr>
+                                        <td class="left-category">
+                                            <span class="category-icon"><i
+                                                    class="{{ item.category_icon_color}} {{item.category_icon}}"></i>{{ item.category_name}}</span>
+                                        </td>
+                                        <td>{{ item.category_type }}</td>
+                                        <td>{{ item.user }}</td>
+                                        <td>{{ item.created_at|date:"M d, Y" }}</td>
+                                        <td>
+                                            {% if item.is_active %}
+                                            <span class="badge bg-success">Active</span>
                                             {% else %}
-                                            <div class="alert alert-warning" role="alert">
-                                              No data found!
-                                            </div>
+                                            <span class="badge bg-danger">Inactive</span>
                                             {% endif %}
-                                        </div>
-                                    </div>
+                                        </td>
+                                        <td class="right-category">
+                                            <a href="{% url 'category:category-edit' item.pk %}"
+                                               class="text-warning me-2" title="Edit">
+                                                <span><i class="fi fi-rs-pencil"></i></span>
+                                            </a>
+                                            <a href="{% url 'category:category-detail' item.pk %}"
+                                               class="text-info me-2" title="View">
+                                                <span><i class="fi fi-rr-eye"></i></span>
+                                            </a>
+                                            <a href="{% url 'category:category-delete' item.pk %}" class="text-danger"
+                                               title="Delete"
+                                               onclick="return confirm('Are you sure you want to delete this category?')">
+                                                <span><i class="fi fi-rr-trash"></i></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                                {% else %}
+                                <div class="alert alert-warning" role="alert">
+                                    No data found!
                                 </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

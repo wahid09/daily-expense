@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.text import slugify
+
 
 # Create your models here.
 from userautentication.models import Account
@@ -52,4 +54,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category_name
+
+    def save(self, *args, **kwargs):
+        if not self.slug and self.category_name:
+            self.slug = slugify(self.category_name)
+        super().save(*args, **kwargs)
 
