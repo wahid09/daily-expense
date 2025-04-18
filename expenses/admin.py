@@ -29,3 +29,6 @@ class ExpenseTagAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ExpenseTag, ExpenseTagAdmin)
+
+
+

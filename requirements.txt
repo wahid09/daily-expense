@@ -6,6 +6,7 @@ django-bootstrap-datepicker-plus==5.0.5
 django-summernote==0.8.20.0
 pillow==11.2.1
 psycopg2==2.9.10
+psycopg2-binary==2.9.10
 pydantic==2.11.3
 pydantic_core==2.33.1
 sqlparse==0.5.3

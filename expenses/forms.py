@@ -7,7 +7,7 @@ from django_summernote.widgets import SummernoteWidget
 class ExpenseForm(forms.ModelForm):
     class Meta:
         model = Expense
-        fields = ['user', 'category', 'amount', 'description', 'expense_date', 'payment_method']
+        fields = ['category', 'amount', 'description', 'expense_date', 'payment_method']
 
         widgets = {
             # 'user': forms.Select(attrs={
@@ -29,9 +29,7 @@ class ExpenseForm(forms.ModelForm):
                 'class': 'form-control'
             }),
             'expense_date': DatePickerInput(attrs={
-                'class': 'form-control',
-                'placeholder': 'Optional description',
-                'rows': 3
+                'class': 'form-control'
             }),
             'payment_method': forms.Select(attrs={
                 'class': 'form-select'

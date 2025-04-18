@@ -29,7 +29,6 @@ def create_category(request):
 
 def edit_category(request, pk):
     category = get_object_or_404(Category, pk=pk, user=request.user)
-
     if request.method == 'POST':
         form = CategoryFrom(request.POST, instance=category)
         if form.is_valid():

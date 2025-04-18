@@ -73,10 +73,26 @@ AUTH_USER_MODEL = 'userautentication.Account'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydb',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '5432'
+
     }
 }
+
+# psql -U postgres
+# CREATE DATABASE mydb;
+# CREATE USER root WITH PASSWORD 'root';
+# ALTER ROLE root SET client_encoding TO 'utf8';
+# ALTER ROLE root SET default_transaction_isolation TO 'read committed';
+# ALTER ROLE root SET timezone TO 'UTC';
+# GRANT ALL PRIVILEGES ON DATABASE mydb TO root;
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -116,6 +132,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 SUMMERNOTE_THEME = 'bs5'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

@@ -1,16 +1,18 @@
 from django import forms
 from .models import Income
+from bootstrap_datepicker_plus.widgets import DatePickerInput
+from django_summernote.widgets import SummernoteWidget
 
 
 class IncomeForm(forms.ModelForm):
     class Meta:
         model = Income
-        fields = ['user', 'category', 'amount', 'description', 'income_date', 'payment_method', 'is_active']
+        fields = ['category', 'amount', 'description', 'income_date', 'payment_method', 'is_active']
 
         widgets = {
-            'user': forms.Select(attrs={
-                'class': 'form-control',
-            }),
+            # 'user': forms.Select(attrs={
+            #     'class': 'form-control',
+            # }),
             'category': forms.Select(attrs={
                 'class': 'form-control',
             }),
@@ -18,14 +20,13 @@ class IncomeForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Enter amount'
             }),
-            'description': forms.Textarea(attrs={
+            'description': SummernoteWidget(attrs={
                 'class': 'form-control',
                 'placeholder': 'Optional description',
                 'rows': 3
             }),
-            'income_date': forms.DateInput(attrs={
-                'class': 'form-control',
-                'type': 'date'
+            'income_date': DatePickerInput(attrs={
+                'class': 'form-control'
             }),
             'payment_method': forms.Select(attrs={
                 'class': 'form-control'
