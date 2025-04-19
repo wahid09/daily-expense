@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!--    <link rel="stylesheet" href="{% static 'vendor/toastr/toastr.min.css' %}">-->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <style>
         .form-switch {
             padding-left: 3.5em;
@@ -164,7 +166,7 @@
                 <li>
                     <a href="{% url 'category:category-list' %}">
                             <span>
-                                <i class="fi fi-rr-wallet"></i>
+                                <i class="fi fi-rr-cloud-sun"></i>
                             </span>
                         <span class="nav-text">Category</span>
                     </a>
@@ -172,7 +174,7 @@
                 <li>
                     <a href="{% url 'expense:expense-list' %}">
                             <span>
-                                <i class="fi fi-rr-wallet"></i>
+                                <i class="fi fi-rr-exclamation"></i>
                             </span>
                         <span class="nav-text">Expense</span>
                     </a>
@@ -180,7 +182,7 @@
                 <li>
                     <a href="{% url 'income:income-list' %}">
                             <span>
-                                <i class="fi fi-rr-wallet"></i>
+                                <i class="fi fi-rr-money-check"></i>
                             </span>
                         <span class="nav-text">Income</span>
                     </a>
@@ -194,7 +196,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="budgets.html">
+                    <a href="{% url 'budget:budget-list' %}">
                             <span>
                                 <i class="fi fi-rr-donate"></i>
                             </span>
@@ -305,6 +307,13 @@
 <script src="{% static 'vendor/circle-progress/circle-progress.min.js' %}"></script>
 <script src="{% static 'js/plugins/circle-progress-init.js' %}"></script>
 <script src="{% static 'js/scripts.js' %}"></script>
+<script>
+$(document).ready(function() {
+    $('.select2').select2({
+    placeholder: 'Select Option'
+    });
+});
+</script>
 </body>
 
 

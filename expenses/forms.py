@@ -14,10 +14,10 @@ class ExpenseForm(forms.ModelForm):
             #     'class': 'form-control'
             # }),
             'category': forms.Select(attrs={
-                'class': 'form-select'
+                'class': 'form-select select2'
             }),
             'amount': forms.NumberInput(attrs={
-                'class': 'form-control',
+                'class': 'form-control form-control-sm',
                 'placeholder': 'Enter expense amount'
             }),
             # 'description': forms.Textarea(attrs={
@@ -26,10 +26,10 @@ class ExpenseForm(forms.ModelForm):
             #     'rows': 3
             # }),
             'description': SummernoteWidget(attrs={
-                'class': 'form-control'
+                'class': 'form-control form-control-sm'
             }),
             'expense_date': DatePickerInput(attrs={
-                'class': 'form-control'
+                'class': 'form-control form-control-sm'
             }),
             'payment_method': forms.Select(attrs={
                 'class': 'form-select'

@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def get_budget(request):
-    pass
+    return render(request, 'budget/budget_list.html')
