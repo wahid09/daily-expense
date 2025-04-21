@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Expense, ExpenseTag, Tag
+from .models import Expense, ExpenseTag, Tag, ExpenseCategoryAmountTrack
 
 
 class ExpenseAdmin(admin.ModelAdmin):
@@ -29,6 +29,15 @@ class ExpenseTagAdmin(admin.ModelAdmin):
 
 
 admin.site.register(ExpenseTag, ExpenseTagAdmin)
+
+
+class ExpenseCategoryAmountTrackAdmin(admin.ModelAdmin):
+    list_display = ('user', 'category', 'expenses', 'amount')
+    fields = ('user', 'category')
+    search_fields = ['expense__id']
+
+
+admin.site.register(ExpenseCategoryAmountTrack, ExpenseCategoryAmountTrackAdmin)
 
 
 

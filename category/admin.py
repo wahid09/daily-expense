@@ -33,7 +33,7 @@ admin.site.register(Color, ColorAdmin)
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('category_name',)}
-    list_display = ('category_name', 'user', 'created_at', 'is_active')
+    list_display = ('category_name', 'category_type', 'user', 'created_at', 'is_active')
     list_editable = ['is_active']
     search_fields = ['category_name', 'slug']
 

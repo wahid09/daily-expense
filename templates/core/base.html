@@ -13,12 +13,13 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!--    <link rel="stylesheet" href="{% static 'vendor/toastr/toastr.min.css' %}">-->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <style>
         .form-switch {
             padding-left: 3.5em;
         }
+
     </style>
 </head>
 
@@ -129,9 +130,9 @@
                                         <span><i class="fi fi-rr-user"></i></span>
                                         Profile
                                     </a>
-                                    <a class="dropdown-item" href="wallets.html">
+                                    <a class="dropdown-item" href="{% url 'goals:goals-list' %}">
                                         <span><i class="fi fi-rr-wallet"></i></span>
-                                        Wallets
+                                        Goals
                                     </a>
                                     <a class="dropdown-item" href="settings.html">
                                         <span><i class="fi fi-rr-settings"></i></span>
@@ -269,6 +270,7 @@
                                     var CurrentYear = new Date().getFullYear()
                                     document.write(CurrentYear)
 
+
                             </script>
                             <a href="#">Ekash</a> I All Rights Reserved
                         </p>
@@ -307,6 +309,7 @@
 <script src="{% static 'vendor/circle-progress/circle-progress.min.js' %}"></script>
 <script src="{% static 'js/plugins/circle-progress-init.js' %}"></script>
 <script src="{% static 'js/scripts.js' %}"></script>
+<script src="https://unpkg.com/htmx.org@1.9.2"></script>
 <script>
 $(document).ready(function() {
     $('.select2').select2({

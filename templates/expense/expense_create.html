@@ -26,7 +26,7 @@
         <div class="col-xxl-12 col-xl-12">
             <div class="row justify-content-center align-items-center g-0">
                 <div class="row g-0">
-                    {% include 'partials/alert.html' %}
+                    {% include 'partials/form_error.html' %}
                 </div>
                 <div class="col-xxl-8 col-xl-10 col-lg-12">
                     <div class="card">
@@ -42,6 +42,15 @@
                             <div class="create-new-category">
                                 <form class="row" action="{{ form_action }}" method="POST">
                                     {% csrf_token %}
+                                    {% if form.non_field_errors %}
+                                    <div class="alert alert-danger">
+                                        {{ form.non_field_errors }}
+                                    </div>
+                                    {% endif %}
+                                    <div class="mb-3 col-12">
+                                        <label class="form-label">Category Type </label>
+                                        {{ form.category_type }}
+                                    </div>
                                     <div class="mb-3 col-12">
                                         <label class="form-label">Category Name </label>
                                         {{ form.category }}
@@ -49,6 +58,9 @@
                                     <div class="mb-3 col-12">
                                         <label class="form-label">Expense Amount </label>
                                         {{ form.amount }}
+                                        {% if form.amount.errors %}
+                                        <div class="text-danger">{{ form.amount.errors.0 }}</div>
+                                        {% endif %}
                                     </div>
                                     <div class="mb-3 col-12">
                                         <label class="form-label">Note </label>
@@ -62,10 +74,10 @@
                                         <label class="form-label">Payment Method </label>
                                         {{ form.payment_method }}
                                     </div>
-<!--                                    <div class="mb-3 col-12 form-check form-switch">-->
-<!--                                        {{ form.is_active }}-->
-<!--                                        <label class="form-check-label">Status </label>-->
-<!--                                    </div>-->
+                                    <!--                                    <div class="mb-3 col-12 form-check form-switch">-->
+                                    <!--                                        {{ form.is_active }}-->
+                                    <!--                                        <label class="form-check-label">Status </label>-->
+                                    <!--                                    </div>-->
                                     <div class="col-12">
                                         <button class="btn btn-outline-primary w-100">
                                             <!--                                            Create new category-->

@@ -16,6 +16,7 @@ urlpatterns = [
     path('budgets/', include('budgets.urls')),
     path('recurring-expenses/', include('recurringExpenses.urls')),
     path('summernote/', include('django_summernote.urls')),
+    path('goals/', include('goals.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

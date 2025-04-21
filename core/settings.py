@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'budgets',
     'recurringExpenses',
     'bootstrap_datepicker_plus',
-    'django_summernote'
+    'django_summernote',
+    'goals'
 ]
 
 MIDDLEWARE = [
@@ -73,14 +74,14 @@ AUTH_USER_MODEL = 'userautentication.Account'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydb',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'mydb',
+        # 'USER': 'root',
+        # 'PASSWORD': 'root',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432'
 
     }
 }

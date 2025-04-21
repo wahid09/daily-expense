@@ -1,0 +1,79 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-xl-4">
+                        <div class="page-title-content">
+                            <h3>Goals</h3>
+                            <p class="mb-2">Welcome Ekash Finance Management</p>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="breadcrumbs"><a href="#">Home </a>
+                            <span><i class="fi fi-rr-angle-small-right"></i></span>
+                            <a href="#">Goals</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="goals-tab">
+        <div class="row g-0">
+            <div class="col-xl-3">
+                <div class="nav d-block">
+                    <div class="row">
+                        {% for item in goals_data %}
+                        <div class="col-xl-12 col-md-6">
+                            <div class="goals-nav {% if forloop.first %}active{% endif %}"
+                                 hx-get="{% url 'goals:goal-detail' item.goal.id %}"
+                                 hx-target="#goal-detail"
+                                 hx-swap="innerHTML"
+                                 hx-trigger="click"
+                            >
+                                <div class="goals-nav-circle">
+                                    <div id="circle5"></div>
+                                    <span>{{ item.deposited_percentage }}%</span>
+                                </div>
+                                <div class="goals-nav-text">
+                                    <h3>{{ item.goal.category.category_name }}</h3>
+                                    <p><strong>${{ item.total_deposited }}</strong> / ${{ item.goal.goals_amount }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="add-goals-link">
+                    <h5 class="mb-0">Add new goals</h5>
+                    <a href="{% url 'goals:goals-create' %}">
+                        <i class="fi fi-rr-square-plus"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-9">
+                <div id="goal-detail">
+                    {% include "goals/goal_detail_partial.html" with goal_data=goals_data.0 %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('click', function (e) {
+        // Match any element with class 'goal-tab'
+        const clickedTab = e.target.closest('.goals-nav');
+
+        if (clickedTab) {
+            // Remove 'active' class from all goal tabs
+            document.querySelectorAll('.goal-tab').forEach(el => el.classList.remove('active'));
+
+            // Add 'active' to the clicked one
+            clickedTab.classList.add('active');
+        }
+    });
+</script>
+{% endblock %}

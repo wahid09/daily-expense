@@ -62,3 +62,6 @@ class ExpenseCategoryAmountTrack(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='expense_category_track')
     expenses = models.ForeignKey(Expense, on_delete=models.CASCADE, related_name='expense_track')
     amount = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.user} - {self.category} - {self.expenses} - {self.amount}"
