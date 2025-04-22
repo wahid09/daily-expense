@@ -28,7 +28,7 @@
                     <div class="row">
                         {% for item in goals_data %}
                         <div class="col-xl-12 col-md-6">
-                            <div class="goals-nav {% if forloop.first %}active{% endif %}"
+                            <div class="goals-nav goal-tab {% if forloop.first %}active{% endif %}"
                                  hx-get="{% url 'goals:goal-detail' item.goal.id %}"
                                  hx-target="#goal-detail"
                                  hx-swap="innerHTML"
@@ -65,7 +65,7 @@
 <script>
     document.addEventListener('click', function (e) {
         // Match any element with class 'goal-tab'
-        const clickedTab = e.target.closest('.goals-nav');
+        const clickedTab = e.target.closest('.goal-tab');
 
         if (clickedTab) {
             // Remove 'active' class from all goal tabs
