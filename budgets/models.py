@@ -20,5 +20,5 @@ class Budget(models.Model):
         unique_together = ('user', 'category', 'month')
 
     def __str__(self):
-        return f"{self.user} - {self.category} - {self.month.strftime('%B %Y')} - {self.amount}"
+        return f"{self.user} - {self.category} - {self.amount} - {self.month.strftime('%B %Y')}"
 

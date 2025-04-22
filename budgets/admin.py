@@ -5,7 +5,7 @@ from .models import Budget
 
 
 class BudgetAdmin(admin.ModelAdmin):
-    list_display = ('category', 'user', 'amount', 'created_at', 'is_active')
+    list_display = ('category', 'user', 'amount', 'is_active', 'created_at')
     fields = ('user', 'category', 'month', 'amount', 'is_active')
     list_editable = ['is_active']
     search_fields = ['category']
